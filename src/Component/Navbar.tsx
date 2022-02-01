@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 
 const Header = styled.header`
     display:flex;
-    padding:20px 50px;
+    padding:20px 80px;
     box-sizing:border-box;
     background-color:#008374;
     z-index:9;
@@ -88,15 +89,30 @@ const Icon = styled.i`
 margin-bottom:auto;
 margin-top:auto;
 `
+const Logo = styled.div`
+    font-weight:700;
+    font-size:24px;
+    font-family:"Montserrat", sans-serif;
+    line-height:1.8;
+    color:#fff;
+`
 
 export const Navbar:React.FC = ():JSX.Element=>{
     const location = useLocation()
 
+    
     return(
         <Header>
-            <div>Impact</div>
+            
+            <Link to={'/'}>
+                <Logo>Impact</Logo>
+            </Link>
+            
             <NavItemContainer>
-                <NavItem style={{color:'white'}}>Home</NavItem>
+                <Link to={'/'}>
+                    <NavItem >Home</NavItem>
+                </Link>
+                
                 <DropDownWrapper>
                     <NavItem>Dropdown <Icon className="fas fa-caret-down"></Icon></NavItem>
                     
@@ -124,13 +140,15 @@ export const Navbar:React.FC = ():JSX.Element=>{
                     </DropDownMenu>  
                 </DropDownWrapper>
 
-                <Link to='/services' style={{textDecoration:'none'}}>
+                <Link to='/services'>
                     <NavItem>
                         Services
                     </NavItem>
                 </Link>
+                <Link to='/blog'>
+                    <NavItem>Blog</NavItem>
+                </Link>               
                 
-                <NavItem>Blog</NavItem>
                 <NavItem>About</NavItem>
                 <NavItem>Contact Us</NavItem>
             </NavItemContainer>

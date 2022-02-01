@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 interface Props{
-    onClose:ReactNode
+    onClose():void;
 }
 
 const Backdrop = styled.div`
@@ -25,19 +25,22 @@ const Header = styled.header`
 const Icon = styled.i`
     color:#fff;
     height:100%;
-    font-size:48px;
+    font-size:36px;
     float:right;
     margin-right:30px;
     padding-top:20px;
     cursor:pointer;
 `
-export const Dialog:React.FC<Props>=(onClose):JSX.Element=>{
+export const Dialog:React.FC<Props>=({onClose}):JSX.Element=>{
+
     return(
         <Backdrop>
             <Header>
-                <Icon className='fas fa-times' onClick={()=>onClose}/>
+                
+                <Icon className='fas fa-times' onClick={()=>onClose()}/>
+                
             </Header>
-            <Video  src="https://www.youtube.com/embed/KI2lsdXJQ40" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen/>
+            <Video  src="https://www.youtube.com/embed/KI2lsdXJQ40?autoplay=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen/>
         </Backdrop>
     )
 }

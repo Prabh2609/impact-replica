@@ -5,7 +5,7 @@ import { Card } from './Card';
 
 
 interface Props{
-    component:JSX.Element|JSX.Element[];
+    component?:JSX.Element|JSX.Element[];
     style?:string;
 }
 export const Row :React.FC<Props>=({component,style}):JSX.Element=>{
@@ -18,6 +18,8 @@ export const Row :React.FC<Props>=({component,style}):JSX.Element=>{
     margin-left:auto;
     margin-right:auto;
     display:flex;
+    box-sizing:border-box;
+    flex-wrap:wrap;
     justify-content:space-evenly;
     ${style}
 `

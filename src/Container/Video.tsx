@@ -59,10 +59,21 @@ const Description = styled.p`
     font-size:18px;
 `
 const List = styled.ul`
+    list-style:none;
 `
 const ListItem = styled.li`
     font-size:18px;
     font-weight:400;
+    position:relative;
+    padding-left:30px;
+    &::before{
+        content:'\\2714';
+        position:absolute;
+        font-size:20px;
+        left:0px;
+        top:1px;
+        color:#f85a40;
+    }
 `
 
 
@@ -70,7 +81,8 @@ const ListItem = styled.li`
 export const VideoSection:React.FC=():JSX.Element=>{
     const [open,setOpen] = useState(false)
     
-    const handleDialogClose=()=>{
+    const onClose = ():void=>{
+        
         setOpen(false)
     }
     
@@ -112,7 +124,7 @@ export const VideoSection:React.FC=():JSX.Element=>{
                 <ActionButton content='Learn More' hover={false}/>
             </Content>
             {
-                open?<Dialog onClose={handleDialogClose}/>:null
+                open?<Dialog onClose={onClose}/>:null
             }
             
         </Container>

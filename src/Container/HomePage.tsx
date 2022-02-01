@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Card } from '../Component/Card';
+import { Carousel } from '../Component/Carousel';
 import { HomePageFirstSection } from '../Component/HomePageFirstSection';
 
 import { Navbar } from '../Component/Navbar';
 import { Row } from '../Component/Row';
+import { Blogs } from './Blog';
 import { BusinessGrowth } from './BusinessGrowth';
 import { ServicesProvided } from './ServicesProvided';
 import { VideoSection } from './Video';
@@ -52,6 +54,8 @@ export const HomePage:React.FC=():JSX.Element=>{
             <BusinessGrowth/>
             <ServicesProvided/>
             <VideoSection/>
+            <Carousel/>
+            <Blogs/>
         </HomePageContainer>
         
     )
