@@ -9,10 +9,15 @@ const Container = styled.div`
     justify-content:space-evenly;
     padding:50px;
     padding-top:13%;
+    flex-wrap:wrap;
     padding-bottom:20px;
-`
+
+    `
 const ImageContainer=styled.div`
     width:50%;
+    @media (max-width:768px){
+        width:100%;
+    }
 `
 const Heading = styled.h2`
     text-align:left;
@@ -21,9 +26,15 @@ const Heading = styled.h2`
 const ContentContainer = styled.div`
     width:30%;
     text-align:left;
+    width:50%;
+    @media (max-width:768px){
+        width:100%;
+    }
 `
 const Content = styled.p`
     text-align:left;
+    font-family:"Open Sans", sans-serif;
+    line-height:1.8;
 `
 const Image = styled.img`
     width:100%;

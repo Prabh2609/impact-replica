@@ -21,9 +21,14 @@ const Icon = styled.i`
     font-size:50px;
     color:#fff;
     padding-top:25px;
+    @media (max-width:768px){
+        text-align:center;
+    }
 `
 const Heading = styled.h3`
     margin-left:20px;
+    margin-top:10px;
+    margin-bottom:10px;
 `
 const Content = styled.p`
     margin-left:20px;
@@ -40,6 +45,8 @@ padding-top:25px;
 const MetaData = styled.div`
     display:block;
     margin-left:5%;
+    color:#7a7a7a;
+    margin-top:10px;
 `
 const Data = styled.span`
 
@@ -53,6 +60,10 @@ export const Card:React.FC<Props>=({heading,imageUrl,content,style,icon,metaData
     justify-content:space-evenly;
     text-align:left;
     ${style}
+    @media (max-width:768px){
+        width:100%;
+        flex-direction:column;
+    }
     `
 
     return(

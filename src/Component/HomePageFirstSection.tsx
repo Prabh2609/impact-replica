@@ -30,6 +30,9 @@ const Description = styled.p`
 `
 const Image = styled.img`
     height:65vh;
+    @media (max-width: 768px) {
+        display:none;
+      }
 `
 export const HomePageFirstSection:React.FC=():JSX.Element=>{
     return(

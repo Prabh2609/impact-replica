@@ -36,7 +36,7 @@ export const ActionButton:React.FC<Props>=({content,hover,variant}):JSX.Element=
         font-family:"Open Sans", sans-serif;
         line-height:1.5;
         font-weight:400;
-        
+        font-size:1rem;
         ${hover?
             '&:hover{background-color:transparent;border:2px solid white;}'
             :

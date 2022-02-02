@@ -33,19 +33,18 @@ export const HomePage:React.FC=():JSX.Element=>{
                         <Card  
                             heading='Design'
                             content={con}
-                            
                             icon = 'fas fa-layer-group' 
-                            style='color:#fff'/>,
+                            style={`color:white; & p{color:rgba(255, 255, 255, 0.5)}`}/>,
                         <Card 
                             heading='Applications' 
                             content={con}  
                             icon='fas fa-mobile-alt' 
-                            style='color:#fff'/>,
+                            style={`color:white; & p{color:rgba(255, 255, 255, 0.5)}`}/>,
                         <Card 
                             heading='eCommerce'
                             content={con}
                             icon='fas fa-shopping-bag'
-                            style='color:#fff'/>    
+                            style={`color:white; & p{color:rgba(255, 255, 255, 0.5)}`}/>    
                     ]}
                     style={'background-color:#009080;width:80vw'}
                 />

@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import styled from 'styled-components';
 import { keyframes } from 'styled-components';
+import { ReviewSection } from './ReviewSection';
+import { ReviewData } from '../Utils/review';
+import clsx from 'clsx';
+
 
 const Container = styled.div`
     background-color:#fafafa;
     width:100%;
-    height:70vh;
-    padding-top:10%;
+    height:fit-content;
+    padding-top:50px;
+    overflow-y:hidden;
+    box-sizing:border-box;
 `
 
 const CarouselContainer = styled.div`
-    height:80%;
-
+    overflow:hidden;
     width:100%;
     display:flex;
     padding-left:30px;
@@ -28,70 +33,109 @@ const Icon = styled.i`
     
 `
 
-const Image = styled.img`
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    border:7px solid #fff;
-`
-const Name = styled.h3`
-`
-const Designation = styled.span`
-    opacity:0.5;
-`
-const Feedback = styled.p`
-`
-const SliderContainer = styled.div`
-    box-sizing:border-box;
-    overflow:hidden;
-    width:80%;
-`
-const Slider = keyframes`
-    0%{left:0px;}
-    10%{left:0px;}
-    15%{left:-100%;}
-    25%{left:-100%;}
-`
-
-const Items = styled.div`
-    position:relative;
-    width:240%;
-    animation: ${Slider};
-    animation-duration: 30s;
-    animation-iteration-count: infinite;
-    background-color:blue;
-`
-const Item = styled.div`
-    background-color:yellow;
-    width:80vw;
-    height:100%;
-    float:left;
-
+const List=styled.ul`
+    display:flex;
+    list-style:none;
+    padding-top:50px;
+    justify-content:center;
 `
 
 export const Carousel:React.FC=():JSX.Element=>{
+    const [activeReview,setActiveReview] = useState(0);
+    const [currentData,setCurrentData] = useState(ReviewData[activeReview]);
+    const [nextAnimate,setNextAnimate] = useState(true)
+    const [prevAnimate,setPrevAnimate] = useState(false)
+
+    const ListItem=styled.li`
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background-color:rgba(248, 90, 64, 0.1);
+    color:#f85a40;
+    line-height:40px;
+    text-align:center;
+    margin-left:8px;
+    cursor:pointer;
+    margin-bottom:25px;
+    &[data-id="${activeReview}"] {
+        background-color:#f85a40;
+      }
+
+
+    &:hover{
+        background-color:#f85a40;
+        color:#fff;
+    }
+`
+
+    useEffect(()=>{
+        setCurrentData(ReviewData[activeReview])
+        const timer = setInterval(()=>{
+            setNextAnimate(true)
+            setPrevAnimate(false)
+            setActiveReview((activeReview+1)%ReviewData.length)
+
+        },5000)
+
+        return ()=>{
+            clearInterval(timer)
+        }
+    },[activeReview])    
+    
+    const handleOnClick=(e:React.MouseEvent<HTMLElement>)=>{
+        if(Number(e.currentTarget.getAttribute('data-id'))>activeReview){
+            setNextAnimate(true)
+            setPrevAnimate(false)
+        }else if(Number(e.currentTarget.getAttribute('data-id'))<activeReview){
+            setPrevAnimate(true)
+            setNextAnimate(false)
+        }else{
+            setNextAnimate(false)
+            setPrevAnimate(false)
+        }
+        setActiveReview(Number(e.currentTarget.getAttribute('data-id')))
+    }
+    
+    const handlePrevClick=()=>{
+        setNextAnimate(false)
+        setPrevAnimate(true)
+        activeReview==0?setActiveReview(ReviewData.length-1):setActiveReview((activeReview-1)%ReviewData.length)
+    }
+
+    const handleNextClick=()=>{
+        setNextAnimate(true)
+        setPrevAnimate(false)
+        setActiveReview((activeReview+1)%ReviewData.length)
+    }
+
     return(
         <Container>
+            
             <CarouselContainer>
-                <Icon className='fas fa-chevron-left'/>
-                    <SliderContainer>
-                        <Items>
-                            <Item>
-                                <Image src = 'https://untree.co/demos/impact/images/person_1.jpg'/>
-                                <Name>Maria Jones</Name>
-                                <Designation>Customer</Designation>
-                                                 
-                            </Item>
-                            <Item style={{backgroundColor:'red'}}>
-                                <Image src = 'https://untree.co/demos/impact/images/person_1.jpg'/>
-                                <Name>Maria Jones</Name>
-                                <Designation>Customer</Designation>
-                                                 
-                            </Item>
-                        </Items>
-                    </SliderContainer>
-                <Icon className='fas fa-chevron-right'/>
+                <Icon className='fas fa-chevron-left' onClick={()=>handlePrevClick()}/>
+                    
+                    <ReviewSection 
+                        name={currentData.name}
+                        imageUrl={currentData.imageUrl} 
+                        designation={currentData.designation} 
+                        feedback={currentData.feedback}
+                        nextAnimate={nextAnimate}
+                        prevAnimate={prevAnimate}
+                    />
+
+                <Icon className='fas fa-chevron-right' onClick={()=>{handleNextClick()}}/>
+            
             </CarouselContainer>
+            <List>
+                {
+                    ReviewData.map(item=>{
+                        return(
+                            <ListItem data-id={item.id} data-active={true} onClick={(e)=>handleOnClick(e)} ></ListItem>
+                        )
+                        
+                    })
+                }
+            </List>
         </Container>
     )
 }

@@ -56,14 +56,22 @@ const ContentHeading=styled.h2`
     font-size:28px;
 `
 const Description = styled.p`
-    font-size:18px;
+    font-size:14px;
+    font-family:"Open Sans", sans-serif;
+    line-height:1.8;
+    font-weight:400;
 `
 const List = styled.ul`
     list-style:none;
+    
 `
 const ListItem = styled.li`
-    font-size:18px;
+    font-size:14px;
     font-weight:400;
+    font-family:"Open Sans", sans-serif;
+    font-weight:400;
+    line-height:1.8;
+    color:#212529;
     position:relative;
     padding-left:30px;
     &::before{

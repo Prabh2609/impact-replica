@@ -8,10 +8,36 @@ const Container = styled.div`
     padding:50px;
     height:100vh;
     box-sizing:border-box;
+    margin-bottom:10vh;
 `
 const Heading = styled.h3`
+font-size:30px;
+font-weight:bold;
+font-family:"Montserrat", sans-serif;
+line-height:1.2;
 `
 const Description = styled.p`
+    font-family:"Open Sans",sans-serif;
+    line-height:1.8;
+    font-size:14px;
+    width:50%;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+`
+const cardStyle=`   
+    display:block;
+    height:max-content;
+    background-color:#fff;
+    border-radius:8px;
+    margin-bottom:20px;
+`
+const imageStyle=`
+    height:50%;
+    width:-webkit-fill-available;
+    padding-top:0px;
+    border-radius:8px;
+    margin-left:5%;
 `
 export const Blogs:React.FC=():JSX.Element=>{
     return(
@@ -26,27 +52,27 @@ export const Blogs:React.FC=():JSX.Element=>{
                 style='height:60vh;'
                 component={[
                     <Card 
-                        style='display:block;& img{width:90%;height:50%;padding-top:0px;border-radius:8px;margin-left:5%;}' 
+                        style={`${cardStyle} & img{${imageStyle}}`} 
                         imageUrl='https://untree.co/demos/impact/images/post_2.jpg' 
                         heading='Important of getting a notifications'
                         action='Read More'
-                        metaData='27 May 2021 . 12 Comments'
+                        metaData='May 27, 2021 • 12 Comments'
                         content='Sapiente, assumenda suscipit autem ab expedita dignissimos, corrupti iusto nobis ex aperiam cumque reprehenderit consequuntur.'
                     />,
                     <Card 
-                        style='display:block;& img{width:90%;height:50%;padding-top:0px;border-radius:8px;margin-left:5%;}' 
+                    style={`${cardStyle} & img{${imageStyle}}`}  
                         imageUrl='https://untree.co/demos/impact/images/post_3.jpg' 
                         heading='Important of getting a notifications'
                         action='Read More'
-                        metaData='27 May 2021 . 12 Comments'
+                        metaData='May 27, 2021 • 12 Comments'
                         content='Sapiente, assumenda suscipit autem ab expedita dignissimos, corrupti iusto nobis ex aperiam cumque reprehenderit consequuntur.'
                     />,
                     <Card 
-                        style='display:block;& img{width:90%;height:50%;padding-top:0px;border-radius:8px;margin-left:5%;}' 
+                    style={`${cardStyle} & img{${imageStyle}}`} 
                         imageUrl='https://untree.co/demos/impact/images/post_4.jpg' 
                         heading='Important of getting a notifications'
                         action='Read More'
-                        metaData='27 May 2021 . 12 Comments'
+                        metaData='May 27, 2021 • 12 Comments'
                         content='Sapiente, assumenda suscipit autem ab expedita dignissimos, corrupti iusto nobis ex aperiam cumque reprehenderit consequuntur.'
                     />
                 ]}

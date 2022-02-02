@@ -10,15 +10,26 @@ const Container = styled.div`
     padding:60px;
     box-sizing:border-box;
     justify-content:space-evenly;
+    @media (max-width:768px){
+        flex-direction:column;
+        height:150vh;
+    }
 `
 const Content=styled.div`
     width:40%;
+    @media(max-width:768px){
+        width:100%;
+    }
     
 `
 const ImageContainer = styled.div`
     width:45%;
     height:80%;
     margin-top:20px;
+    @media(max-width:768px){
+        width:100%;
+        height:auto;
+    }
 `
 const ContentHeading = styled.h2`
     text-align:left;
@@ -37,9 +48,17 @@ const Icon = styled.div`
 `
 const ItemContent = styled.p`
     text-align:left;
+    font-family:"Open Sans", sans-serif;
+    font-size:14px;
+    line-height:1.8;
+    font-weight:400;
 `
 const ItemHeading = styled.h3`
     text-align:left;
+    line-height:1.2;
+    font-family:"Montserrat", sans-serif;
+    font-size:18px;
+    font-weight:bold;
 `
 const ItemContentContainer = styled.div`
     width:80%;
@@ -76,7 +95,7 @@ export const WhyUs:React.FC=():JSX.Element=>{
                     </Icon>
                     
                     <ItemContentContainer>
-                        <ItemHeading>Professional</ItemHeading>
+                        <ItemHeading>Good Review</ItemHeading>
                         <ItemContent>
                             Sapiente, assumenda suscipit autem ab expedita dignissimos,
                             corrupti iusto nobis ex aperiam cumque reprehenderit,

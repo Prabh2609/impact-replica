@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import { useLocation } from 'react-router';
+import React, { useEffect, useState } from 'react';
+
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Nav } from './NavItem';
+import { Sidebar } from './Sidebar';
 
 
 const Header = styled.header`
@@ -12,93 +14,46 @@ const Header = styled.header`
     background-color:#008374;
     z-index:9;
     justify-content:space-between;
-    
-`
-const NavItemContainer = styled.ul`
-    width:40%;
-    list-style-type:none;
-    display:flex;
-    justify-content:space-evenly
-`
-const NavItem = styled.li`
-    color:rgba(255,255,255,0.7);
-    cursor:pointer;
-    padding-bottom:20px;
-    font-size:14px;
-    &:hover{
-        color:white
-    }
+
+    @media (max-width: 768px) {
+        position:relative;
+      }
     
 `
 
-
-const DropDownMenu = styled.div`
-    background-color:white;
-    padding:20px 0px;
-    text-align:left;
-    display:none;
-    width:180px;
-    position:absolute;
-    left:-20%;
-    top:50%;
-    margin-top:5px;
-    box-shadow:0 2px 10px -2px rgb(0 0 0 / 10%);
+ const Logo = styled.div`
+ font-weight:700;
+ font-size:24px;
+ font-family:"Montserrat", sans-serif;
+ line-height:1.8;
+ color:#fff;
 `
-const SubDropDownMenu = styled.div`
-    background-color:white;
-    padding:20px 0px;
-    text-align:left;
-    display:none;
-    width:180px;
-    position:absolute;
-    left:112%;
-    top:-30%;  
-    margin-top:5px;
-    box-shadow:0 2px 10px -2px rgb(0 0 0 / 10%);
-`
-
-const SubDropDownHeading = styled.div`
-    width:100%;
-    display:flex;
-    padding-right:20px;
-    justify-content:space-between;
-    
-`
-const DropDownWrapper = styled.div`
-    position:relative;
-    &:hover ${DropDownMenu}{
-        display:block;
-    }
-    
- `
- const SubDropDownWrapper = styled.div`
-    position:relative;
-    &:hover ${SubDropDownMenu}{
-        display:block;
-    }
- `
-const DropDownItem = styled.li`
-    padding:5px 20px;
-    cursor:pointer;
-    color:black;    
-    &:hover{
-        color:red
-    }
-`
-const Icon = styled.i`
-margin-bottom:auto;
-margin-top:auto;
-`
-const Logo = styled.div`
-    font-weight:700;
-    font-size:24px;
-    font-family:"Montserrat", sans-serif;
-    line-height:1.8;
+ const Hamburger = styled.i`
     color:#fff;
-`
+    font-size:30px;
+    height:100%;
+    display:none;
+    cursor:pointer;
 
+    @media (max-width: 768px) {
+        display:block;
+      }
+ `
+
+ const LargeNav=styled.div`
+      width:50%;
+      @media (max-width: 768px) {
+        display:none;
+      }
+ `
+
+ 
 export const Navbar:React.FC = ():JSX.Element=>{
-    const location = useLocation()
+    const [openSideBar,setOpenSideBar] = useState(false)
+    
+    const toggleSideBar=():void=>{
+        setOpenSideBar(!openSideBar)
+    }
 
     
     return(
@@ -107,51 +62,15 @@ export const Navbar:React.FC = ():JSX.Element=>{
             <Link to={'/'}>
                 <Logo>Impact</Logo>
             </Link>
-            
-            <NavItemContainer>
-                <Link to={'/'}>
-                    <NavItem >Home</NavItem>
-                </Link>
-                
-                <DropDownWrapper>
-                    <NavItem>Dropdown <Icon className="fas fa-caret-down"></Icon></NavItem>
-                    
-                    <DropDownMenu>
-                        <DropDownItem>
-                            Menu One
-                        </DropDownItem>
-                        <DropDownItem>
-                            <SubDropDownWrapper>
-                                <SubDropDownHeading>
-                                <span>Menu Two</span>
-                                <Icon className="fas fa-caret-right"></Icon> 
-                                </SubDropDownHeading>
-                                
-                                 <SubDropDownMenu>
-                                    <DropDownItem>Sub Menu One</DropDownItem>
-                                    <DropDownItem>Sub Menu Two</DropDownItem>
-                                    <DropDownItem>Sub Menu Three</DropDownItem>
-                                </SubDropDownMenu> 
-                             </SubDropDownWrapper>    
-                        </DropDownItem>
-                        <DropDownItem>
-                            Menu Three
-                        </DropDownItem>
-                    </DropDownMenu>  
-                </DropDownWrapper>
-
-                <Link to='/services'>
-                    <NavItem>
-                        Services
-                    </NavItem>
-                </Link>
-                <Link to='/blog'>
-                    <NavItem>Blog</NavItem>
-                </Link>               
-                
-                <NavItem>About</NavItem>
-                <NavItem>Contact Us</NavItem>
-            </NavItemContainer>
+            <LargeNav>
+                <Nav/>
+            </LargeNav>
+            <Hamburger className='fas fa-bars' onClick={()=>toggleSideBar()}/>
+            {
+                openSideBar?<Sidebar onClose={toggleSideBar} />:null
+            }
+                  
         </Header>
+        
     )
 }
