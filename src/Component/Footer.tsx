@@ -5,6 +5,9 @@ const Container = styled.footer`
     height:65vh;
     background-color:#000;
     width:100%;
+    @media (max-width:768px){
+        height:max-content;        
+    }
 `
 const ItemContainer=styled.div`
     display:flex;
@@ -13,11 +16,17 @@ const ItemContainer=styled.div`
     justify-content:space-evenly;
     box-sizing:border-box;
     padding:80px;
+    @media (max-width:768px){
+        flex-direction:column;        
+    }
 `
 const Item=styled.div`
     text-align:left;
     min-width:15vw;
     width:fit-content;
+    @media(max-width:768px){
+        width:100%;
+    }
 `
 const Credit = styled.div`
 
@@ -30,6 +39,9 @@ const Heading = styled.h3`
 const Content = styled.p`
     color:#63767a;
     max-width:25vw;
+    @media(max-width:768px){
+        max-width:100%;
+    }
 `
 const List = styled.ul`
     color:#fff;

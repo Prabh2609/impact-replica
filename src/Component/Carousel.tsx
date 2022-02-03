@@ -30,7 +30,9 @@ const Icon = styled.i`
     padding-top:8%;
     font-size:24px;
     box-sizing:border-box;
-    
+    @media (max-width:768px){
+        display:none;
+    }    
 `
 
 const List=styled.ul`

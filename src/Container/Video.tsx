@@ -11,18 +11,28 @@ const Container = styled.div`
     position:relative;
     box-sizing:border-box;
     justify-content:space-evenly;
+    @media (max-width:768px){
+        flex-direction:column-reverse;
+        height:max-content;
+    }
 `
 const VideoContainer=styled.div`
     width:50%;
     height:90%;
     position:relative;
+    @media (max-width:768px){
+        width:100%;
+    }
 `
 const Content = styled.div`
     width:30%;
     height:80%;
-    
     padding-top:20px;
     text-align:left;
+    @media (max-width:768px){
+        width:100%;
+        margin-bottom:25px;
+    }
 `
 const Image = styled.img`
     width:100%;

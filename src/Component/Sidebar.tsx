@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled,{keyframes} from 'styled-components';
 import { Nav } from './NavItem';
 
 interface Props{
@@ -18,6 +18,18 @@ const Backdrop = styled.div`
         top:0px;
       }
  `
+ const slideLeft=keyframes`
+      from{width:0;opacity:0;}
+      to{width:intial;opacity:1;}
+ `
+ const slideRight = keyframes`
+      from{width:40vw;}
+      to{width:0;display:none;}
+ `
+ const fadeIn = keyframes`
+      from{opacity:0;}
+      to{opacity:1;}
+ `
 
  const SidebarContainer=styled.div`
       background-color:#fff;
@@ -25,13 +37,18 @@ const Backdrop = styled.div`
       height:100vh;
       float:right;
       padding:8px 20px;
+      animation:${slideLeft} 0.5s linear;
       box-sizing:border-box;
+      @media (max-width:426px){
+          width:50vw;
+      }
  `
  const Icon=styled.i`
       color:#000;
       cursor:pointer;
       float:right;
       font-size:28px;
+      animation:${fadeIn} 0.5s linear;
  `
 
 export const Sidebar:React.FC<Props>=({onClose}):JSX.Element=>{

@@ -11,7 +11,12 @@ const Container = styled.div`
     padding-top:13%;
     flex-wrap:wrap;
     padding-bottom:20px;
-
+    @media (max-width:768px){
+        height:max-content;
+    }
+    @media (max-width:426px){
+        padding:12px;
+    }
     `
 const ImageContainer=styled.div`
     width:50%;

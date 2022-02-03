@@ -15,6 +15,7 @@ interface Props{
 
 const ContentContainer=styled.div`
     text-align:left;
+    
 `
 const Icon = styled.i`
     width:20%;
@@ -23,6 +24,10 @@ const Icon = styled.i`
     padding-top:25px;
     @media (max-width:768px){
         text-align:center;
+    }
+    @media (max-width:426px){
+        font-size:36px;
+        margin-left:12px;   
     }
 `
 const Heading = styled.h3`
@@ -59,11 +64,14 @@ export const Card:React.FC<Props>=({heading,imageUrl,content,style,icon,metaData
     padding:8px;
     justify-content:space-evenly;
     text-align:left;
-    ${style}
+    
     @media (max-width:768px){
         width:100%;
         flex-direction:column;
     }
+    @media (max-width:426px){
+    }
+    ${style}
     `
 
     return(

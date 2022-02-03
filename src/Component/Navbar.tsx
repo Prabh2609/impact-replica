@@ -15,9 +15,14 @@ const Header = styled.header`
     z-index:9;
     justify-content:space-between;
 
+    
     @media (max-width: 768px) {
         position:relative;
-      }
+    }
+    @media (max-width:426px){
+        padding-left:10px;
+        padding-right:10px;
+    }
     
 `
 

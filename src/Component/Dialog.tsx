@@ -1,5 +1,6 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import ReactDOM from 'react-dom'
 
 interface Props{
     onClose():void;
@@ -8,7 +9,7 @@ interface Props{
 const Backdrop = styled.div`
     width:100%;
     height:100vh;
-    position:absolute;
+    position:fixed;
     background-color:rgba(0,0,0,0.8);
     top:0px;
 `
@@ -31,9 +32,11 @@ const Icon = styled.i`
     padding-top:20px;
     cursor:pointer;
 `
+
+const rootDiv = document.getElementById('portal')!
 export const Dialog:React.FC<Props>=({onClose}):JSX.Element=>{
 
-    return(
+    return ReactDOM.createPortal(
         <Backdrop>
             <Header>
                 
@@ -41,6 +44,7 @@ export const Dialog:React.FC<Props>=({onClose}):JSX.Element=>{
                 
             </Header>
             <Video  src="https://www.youtube.com/embed/KI2lsdXJQ40?autoplay=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen/>
-        </Backdrop>
-    )
+        </Backdrop>,
+        rootDiv
+    );
 }

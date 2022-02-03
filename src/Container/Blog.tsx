@@ -9,6 +9,9 @@ const Container = styled.div`
     height:100vh;
     box-sizing:border-box;
     margin-bottom:10vh;
+    @media (max-width:768px){
+        height:max-content;
+    }
 `
 const Heading = styled.h3`
 font-size:30px;
@@ -24,6 +27,12 @@ const Description = styled.p`
     text-align:center;
     margin-left:auto;
     margin-right:auto;
+    @media (max-width:768px){
+        width:70%;
+    }
+    @media (max-width:768px){
+        width:100%;
+    }
 `
 const cardStyle=`   
     display:block;
@@ -31,6 +40,11 @@ const cardStyle=`
     background-color:#fff;
     border-radius:8px;
     margin-bottom:20px;
+    @media (max-width:768px){
+        width:30%;
+    }@media (max-width:426px){
+        width:100%;
+    }
 `
 const imageStyle=`
     height:50%;
@@ -38,6 +52,13 @@ const imageStyle=`
     padding-top:0px;
     border-radius:8px;
     margin-left:5%;
+`
+const rowStyle =`
+    height:60vh;
+    @media (max-width:768px){
+        width:100%;
+        height:max-content;
+    }
 `
 export const Blogs:React.FC=():JSX.Element=>{
     return(
@@ -49,7 +70,7 @@ export const Blogs:React.FC=():JSX.Element=>{
                 Sapiente, assumenda suscipit autem ab expedita dignissimos, corrupti iusto nobis ex aperiam cumque reprehenderit consequuntur.
             </Description>
             <Row
-                style='height:60vh;'
+                style={rowStyle}
                 component={[
                     <Card 
                         style={`${cardStyle} & img{${imageStyle}}`} 

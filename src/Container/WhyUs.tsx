@@ -14,6 +14,10 @@ const Container = styled.div`
         flex-direction:column;
         height:150vh;
     }
+    @media (max-width:426px){
+        padding-left:8px;
+        padding-right:8px;
+    }
 `
 const Content=styled.div`
     width:40%;
@@ -41,6 +45,9 @@ const ItemContainer = styled.div`
     width:100%;
     height:30%;
     display:flex;
+    @media (max-width:426px){
+        height:40%;
+    }
 `
 const Icon = styled.div`
     height:30%;

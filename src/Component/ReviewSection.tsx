@@ -48,8 +48,13 @@ export const ReviewSection:React.FC<Props>=({imageUrl,name,designation,feedback,
     const Container = styled.div`
     width:50%;
     position:relative;
-    ${nextAnimate?css`animation:${mymove} 1s linear`:null}
-    ${prevAnimate?css`animation:${prev} 1s linear`:null}
+    ${nextAnimate?css`animation:${mymove} 1s linear;`:null}
+    ${prevAnimate?css`animation:${prev} 1s linear;`:null}
+    @media (max-width:768px){
+        width:100%;
+        margin-top:20px;
+        margin-bottom:20px;
+    }
 `    
 
     return(
