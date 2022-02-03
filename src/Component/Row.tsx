@@ -1,7 +1,5 @@
-import React, { FC } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { JsxAttributeLike } from 'typescript';
-import { Card } from './Card';
 
 
 interface Props{

@@ -1,9 +1,8 @@
-import React, { useState,useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { keyframes } from 'styled-components';
-import { ReviewSection } from './ReviewSection';
 import { ReviewData } from '../Utils/review';
-import clsx from 'clsx';
+import { ReviewSection } from './ReviewSection';
+
 
 
 const Container = styled.div`

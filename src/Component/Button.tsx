@@ -45,6 +45,6 @@ export const ActionButton:React.FC<Props>=({content,hover,variant}):JSX.Element=
         
     `
     return(
-        variant == 'Link'?<LinkButton>{content}</LinkButton>:<Button>{content}</Button>      
+        variant === 'Link'?<LinkButton>{content}</LinkButton>:<Button>{content}</Button>      
     )
 }
