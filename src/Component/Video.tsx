@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ActionButton } from '../Component/Button';
-import { Dialog } from '../Component/Dialog';
+import { ActionButton } from './Button';
+import { Dialog } from './Dialog';
 
 const Container = styled.div`
     height:100vh;
