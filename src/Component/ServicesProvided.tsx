@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Card } from '../Component/Card';
-import { Row } from '../Component/Row';
+import { Card } from './Card';
+import { Row } from './Row';
 
 const CardStyle=`
     @media (max-width:768px){

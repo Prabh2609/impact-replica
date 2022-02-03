@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Card } from '../Component/Card';
+import { Card } from './Card';
 // import AboutUs from '../assets/AboutUs.png' 
 
 const Container = styled.div`

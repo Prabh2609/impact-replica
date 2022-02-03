@@ -6,11 +6,11 @@ import { HomePageFirstSection } from '../Component/HomePageFirstSection';
 
 import { Navbar } from '../Component/Navbar';
 import { Row } from '../Component/Row';
-import { Blogs } from './Blog';
-import { BusinessGrowth } from './BusinessGrowth';
-import { ServicesProvided } from './ServicesProvided';
-import { VideoSection } from './Video';
-import { WhyUs } from './WhyUs';
+import { Blogs } from '../Component/Blog';
+import { BusinessGrowth } from '../Component/BusinessGrowth';
+import { ServicesProvided } from '../Component/ServicesProvided';
+import { VideoSection } from '../Component/Video';
+import { WhyUs } from '../Component/WhyUs';
 
 const LandingPage=styled.main`
     background-color:#008374;

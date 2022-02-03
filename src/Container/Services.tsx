@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { ActionButton } from '../Component/Button';
 import { Card } from '../Component/Card';
 import { Row } from '../Component/Row';
-import { ServicesProvided } from './ServicesProvided';
-import { VideoSection } from './Video';
-import { WhyUs } from './WhyUs';
+import { ServicesProvided } from '../Component/ServicesProvided';
+import { VideoSection } from '../Component/Video';
+import { WhyUs } from '../Component/WhyUs';
 
 const Container = styled.main`
 `

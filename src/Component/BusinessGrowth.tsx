@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ActionButton } from '../Component/Button';
+import { ActionButton } from './Button';
 
 const Container = styled.div`
     height:95vh;
